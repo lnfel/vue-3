@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Episode 1: Vue 3 Absolute Basics</title>
+
+	<script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+	<div id="app">
+		<p>
+			<input type="text" v-model="greeting">
+		</p>
+
+		<p>
+			{{ greeting }} ({{ greeting.length }})
+		</p>
+	</div>
+
+	<script>
+		Vue.createApp({
+			data() {
+				return {
+					greeting: 'Hello World'
+				};
+			},
+
+			mounted() {
+				setTimeout(() => {
+					this.greeting = 'Blyat';
+				}, 3000);
+			}
+		}).mount('#app');
+	</script>
+</body>
+</html>
